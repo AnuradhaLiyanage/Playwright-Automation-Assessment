@@ -1,2 +1,2 @@
 # Playwright-Automation-Assessment
-This is assessment base project that is held by the Wiley. it assess the QE automation. 
+This is an assessment-based project that is held by Wiley. it assesses the QE automation. 
