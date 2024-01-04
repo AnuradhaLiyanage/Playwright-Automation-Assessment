@@ -10,9 +10,12 @@ test('Verify the publications/articles search functionality of onlinelibrary.wil
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle("Wiley Online Library | Scientific research articles, journals, books, and reference works", {timeout: 10000});
 
+  
   await page.locator(SEARCH_BOX).pressSequentially(ISBN);
 
   await page.keyboard.press('Enter');
+
+  
 });
 
 
