@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test.only("Verify the Register page User elements", async ({ page }) => {
+test("Verify the Register page User elements", async ({ page }) => {
 
     // goto register page
     await page.goto("https://onlinelibrary.wiley.com/action/registration?acdl-redirect=true");
