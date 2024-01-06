@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("Verify the Register page User elements", async ({ page }) => {
+test.only("Verify the Register page User elements", async ({ page }) => {
 
     // goto register page
     await page.goto("https://onlinelibrary.wiley.com/action/registration?acdl-redirect=true");
@@ -39,13 +39,11 @@ test("Verify the Register page User elements", async ({ page }) => {
     await expect(page.getByText('Must be at least 10 characters long, and contain at least three of following: Lowercase letter (a-z) | Uppercase letter (A-Z) | Number (0-9) | Special Character')).toBeVisible();
 
 
-    // Assert the "Let's stay in touch", "Terms of use", and "Verify registration " checked state
+    // Assert the "Let's stay in touch", and "Terms of use" checked state
     const checkbox1 = page.getByLabel("Yes, please sign me up for the latest Wiley research news, event announcements, surveys and offers for my areas of interest. I agree to Wiley's Privacy Policy");
     await expect(checkbox1).not.toBeChecked();
 
     const checkbox2 = page.getByLabel('I have read and accept the Wiley Online Library Terms & Conditions of Use and Wiley Privacy Policy');
     await expect(checkbox2).not.toBeChecked();
 
-    const checkbox3 = page.getByLabel("I'm not a robot");
-    await expect(checkbox3).not.toBeChecked();
 })

@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 const SEARCH_BOX = '//*[@id="searchField1"]';
 
 const ISBN = '9781405125772';
+const LINK = '//*[@id="search-result"]/li/div/div[2]/div[3]/h3/a';
 
 test('Verify the publications/articles search functionality of onlinelibrary.wiley.com', async ({ page }) => {
   await page.goto('https://onlinelibrary.wiley.com/');
@@ -17,7 +18,8 @@ test('Verify the publications/articles search functionality of onlinelibrary.wil
   await expect(page.getByText('10 Good Questions About Life and Death')).toBeHidden();
   await expect(page.getByText('First published: 1 January 2005')).toBeHidden();
 
-  await page.getByText('About this Book').click();
+  await expect(page.locator(LINK)).toBeHidden();
+  
   await page.keyboard.press('Enter');
 
   
