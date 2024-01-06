@@ -8,6 +8,9 @@ test("Verify the Register page User elements", async ({ page }) => {
     // Expect a title "Register for a new account - Wiley Online Library" a substring.
     await expect(page).toHaveTitle("Register for a new account - Wiley Online Library", { timeout: 10000 });
 
+    // Check if the additional text is displayed
+    await expect(page.getByText('Set and manage content and citation alerts, affiliate with your institution to access your institution’s licensed content, save searches and articles, and manage personal subscriptions. With your Wiley ID, you can access and manage your account on Wiley Online Library and Wiley Author Services.')).toBeVisible();
+
     // Check the input fields 
     const emailInputLocator = '//*[@id="login.email"]';
     const retypeEmailInputLocator = '//*[@id="login.email2"]';
@@ -32,7 +35,7 @@ test("Verify the Register page User elements", async ({ page }) => {
     const placeholderValue4 = await confirmPasswordInput.getAttribute('placeholder');
     await expect(placeholderValue4).toBe('Re-type your password');
 
-    
+
 
     // The email and password hint text is being visible
     await expect(page.getByText('A one-time confirmation email will be sent to this address. Your email address will serve as your login name.')).toBeVisible();

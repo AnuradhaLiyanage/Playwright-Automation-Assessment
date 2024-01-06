@@ -14,10 +14,9 @@ test('Verify the publications/articles search functionality of onlinelibrary.wil
   //search ISBN 9781405125772
   await page.locator(SEARCH_BOX).pressSequentially(ISBN);
 
-  // expected the "10 Good Questions About Life and Death" should be visibled
+  // expected the "10 Good Questions About Life and Death", "About this Book", and "First published: 1 January 2005" visibility should be hidden
   await expect(page.getByText('10 Good Questions About Life and Death')).toBeHidden();
   await expect(page.getByText('First published: 1 January 2005')).toBeHidden();
-
   await expect(page.locator(LINK)).toBeHidden();
   
   await page.keyboard.press('Enter');
